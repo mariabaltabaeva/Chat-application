@@ -1,9 +1,10 @@
 (function() {
     function MyCtrl($scope, Room) {
-        // controller logic
+      $scope.rooms = Room.all;
+      this.rooms = Room.all
     }
 
     angular
-        .module('blocChat')
-        .controller('MyCtrl', [$scope, Room, MyCtrl]);
+        .module('blocChat',,['ui.router', 'ui.bootstrap'])
+        .controller('MyCtrl', ['$scope', 'Room', 'MyCtrl']);
 })();

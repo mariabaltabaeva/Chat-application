@@ -14,6 +14,6 @@
     });
   }
    angular
-   .module('blocChat')
+   .module('blocChat',['ui.router', 'ui.bootstrap'])
    .config(config);
   })();
