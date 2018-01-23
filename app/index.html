@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <title>Chat-application</title>
     <p>Bloc Chat</p>
-     <button type="button" class="btn btn-default" ng-click="">New Room</button>
+    <div ng-controller='CreateRoomCtrl as modal'>
+            <button type="button" class="btn btn-default" ng-click="modal.open()">New room</button>
+        </div>
     <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
-  <ul><li>Room 1</li>
-    <li>Room 2</li>
-    <li>Room 3</li>
-  </ul>
   <ui-view></ui-view>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
@@ -20,8 +18,22 @@
   <script src="/scripts/Room.js"></script>
   <script src="/scripts/controllers/MyCtrl.js"></script>
   <script src="/scripts/controllers/createRoom.js"></script>
+  <script src="/scripts/controllers/ModalInstanceCtrl.js"></script>
+
   <!-- FireBase -->
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBRl410xgLIKRJbddIqIm_COk8WcEZltQk",
+    authDomain: "chat-room-db9c3.firebaseapp.com",
+    databaseURL: "https://chat-room-db9c3.firebaseio.com",
+    projectId: "chat-room-db9c3",
+    storageBucket: "chat-room-db9c3.appspot.com",
+    messagingSenderId: "370121703015"
+  };
+  firebase.initializeApp(config);
+</script>
   <!-- AngularUI Bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 </body>

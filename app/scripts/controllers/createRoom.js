@@ -1,22 +1,29 @@
-angular.module('ui.bootstrap.demo').controller('ModalDemoCtrl', function ($uibModal, $log, $document) {
-  var $ctrl = this;
-  $ctrl.items = "Hello World";
+(function() {
+    function CreateRoomCtrl($uibModal, Room) {
+       this.open = function() {
+            // open an instance of the modal and store it in
+            //   the variable modalInstance
+            var modalInstance = $uibModal.open({
+                templateUrl : '/templates/modal.html',
+                controller: 'ModalInstanceCtrl',
+                controllerAs: 'modal'
+            });
 
+           // add a promise to the modal instance; these functions
+           //   will run when the modal instance returns a result
+           modalInstance.result.then(function(name) {
+               // This function runs when the modal instance
+               //   is submitted
+               this.room = name;
+               Room.add(this.room);
+           }, function() {
+               // This function runs when the modal instance
+               //   is canceled or dismissed
+           });
+       };
+    }
 
-      var modalInstance = $uibModal.open({
-                       templateUrl: 'view/sample.html',
-                       controller: 'testController',// a controller for modal instance
-                       controllerUrl: 'controller/test-controller', // can specify controller url path
-                       controllerAs: 'ctrl', //  controller as syntax
-                       windowClass: 'clsPopup', //  can specify the CSS class
-                       keyboard: false, // ESC key close enable/disable
-                       resolve: {
-                           actualData: function () {
-                               return self.sampleData;
-                           }
-                       } // data passed to the controller
-                   }).result.then(function (data) {
-                       //do logic
-                   }, function () {
-                       // action on popup dismissal.
-                   });
+    angular
+        .module('blocChat')
+        .controller('CreateRoomCtrl', ['$uibModal', 'Room', CreateRoomCtrl]);
+})();
