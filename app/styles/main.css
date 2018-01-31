@@ -1,20 +1,13 @@
 
-button {
-  background-color: #9932CC;
-   border: none;
-   color: white;
-   padding: 12px 24px;
-   text-align: left;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 14px;
-   position: relative;
-   left: 67px;
-   top: -18px;
+body {
+  font-family: Arial, sans-serif;
+  background: url(https://www.xmple.com/wallpaper/grey-gradient-linear-brown-7680x4320-c2-bc8f8f-778899-a-15-f-14.svg) no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 p {
   font-size:18px;
  padding:30px 50px;
-background-color: #c0c0c0;
+background-color: #FAA0A0;
 }

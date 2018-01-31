@@ -17,14 +17,14 @@
     function BlocChatCookies($cookies, $uibModal) {
     var currentUser = $cookies.get('blocChatCurrentUser');
     if (!currentUser || currentUser === '') {
-        var $uibModalInstanc = $uibModal.open({
+        var $uibModalInstance = $uibModal.open({
              animation: this.animationsEnabled,
              templateUrl : '/templates/usernameModal.html',
              controller: 'UsernameModalInstanceCtrl',
              controllerAs: 'usernameModal'
          });
 
-         $uibModalInstanc.result.then(function(username) {
+         $uibModalInstance.result.then(function(username) {
              $cookies.put('blocChatCurrentUser', username);
          }, function() {
              $log.info('Modal dismissed at ' + new Date());

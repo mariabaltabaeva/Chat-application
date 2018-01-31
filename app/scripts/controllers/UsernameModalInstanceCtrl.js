@@ -1,9 +1,9 @@
 (function() {
 
-    function UsernameModalInstanceCtrl($uibModalInstanc) {
+    function UsernameModalInstanceCtrl($uibModalInstance) {
        this.setUserName = function() {
 
-            $uibModalInstanc.close(this.username);
+            $uibModalInstance.close(this.username);
         };
 
     }
