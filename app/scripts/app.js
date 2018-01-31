@@ -15,25 +15,27 @@
       }
 
     function BlocChatCookies($cookies, $uibModal) {
-    //$cookies.remove('blocChatCurrentUser');
     var currentUser = $cookies.get('blocChatCurrentUser');
     if (!currentUser || currentUser === '') {
-         var modalInstance = $uibModal.open({
+        var $uibModalInstanc = $uibModal.open({
              animation: this.animationsEnabled,
              templateUrl : '/templates/usernameModal.html',
              controller: 'UsernameModalInstanceCtrl',
              controllerAs: 'usernameModal'
          });
 
-         modalInstance.result.then(function(username) {
+         $uibModalInstanc.result.then(function(username) {
              $cookies.put('blocChatCurrentUser', username);
          }, function() {
              $log.info('Modal dismissed at ' + new Date());
          });
+  }
+    return currentUser;
+}
 
-  }
-  }
    angular
    .module('blocChat',['ui.router', 'ui.bootstrap', 'firebase','ngCookies'])
-   .config(config);
+   .run(['$cookies', '$uibModal', BlocChatCookies])
+   .config(config)
+   .controller('BlocChatCookies', ['$uibModal', BlocChatCookies]);
   })();

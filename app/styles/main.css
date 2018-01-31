@@ -1,0 +1,20 @@
+
+button {
+  background-color: #9932CC;
+   border: none;
+   color: white;
+   padding: 12px 24px;
+   text-align: left;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 14px;
+   position: relative;
+   left: 67px;
+   top: -18px;
+}
+
+p {
+  font-size:18px;
+ padding:30px 50px;
+background-color: #c0c0c0;
+}
