@@ -1,9 +1,10 @@
 (function() {
   function newMessage($cookies, Message, $scope) {
-    Message.send({content: $scope.message,
-      username: $cookies.get('blocChatCurrentUser')});
+    $scope.send = function () {
+       Message.send({content: $scope.message,
+       username: $cookies.get('blocChatCurrentUser'), roomId: Message.roomId});
 };
-
+ };
 angular
 .module('blocChat')
 .controller('newMessage', ['$cookies', 'Message', '$scope', newMessage]);
