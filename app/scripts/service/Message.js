@@ -18,5 +18,6 @@
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray', Message]);
+    .factory('Message', ['$firebaseArray', Message])
+    .run(['$cookies', '$uibModal', BlocChatCookies]);
 })();
