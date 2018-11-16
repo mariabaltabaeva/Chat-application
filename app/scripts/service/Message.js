@@ -4,20 +4,19 @@
     var ref = firebase.database().ref().child("messages");
     var messages = $firebaseArray(ref);
 
-   Message.getByRoomId = function(roomId) {
+    Message.getByRoomId = function(roomId) {
 
-     return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
-   };
+      return $firebaseArray(ref.orderByChild('roomId').equalTo(roomId));
+    };
 
-   Message.send = function(newMessage) {
-        this.message = newMessage;
-        Message.add(this.message);
-      };
+    Message.send = function(newMessage) {
+      this.message = newMessage;
+      messages.$add(this.message);
+    };
     return Message;
   }
 
   angular
-    .module('blocChat')
-    .factory('Message', ['$firebaseArray', Message])
-    .run(['$cookies', '$uibModal', BlocChatCookies]);
+  .module('blocChat')
+  .factory('Message', ['$firebaseArray', Message]);
 })();

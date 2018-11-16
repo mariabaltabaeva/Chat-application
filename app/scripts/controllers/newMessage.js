@@ -1,15 +1,11 @@
 (function() {
-    function newMessage($uibModalInstance, Message) {
-      this.send = function() {
+  function newMessage($cookies, Message, $scope) {
+    Message.send({content: $scope.message,
+      username: $cookies.get('blocChatCurrentUser')});
+};
 
-           $uibModalInstance.close(this.message);
+angular
+.module('blocChat')
+.controller('newMessage', ['$cookies', 'Message', '$scope', newMessage]);
 
-     this.setUserName = currentUser;
-   }
-}
-
-    angular
-        .module('blocChat')
-        .controller('newMessage', ['$uibModalInstance', newMessage])
-        
 })();
